@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(806, 542)
-        MainWindow.setStyleSheet(u"background-color:rgb(45, 45, 45)")
+        MainWindow.setStyleSheet(u"background-color:rgb(250,250,250)")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
         self.Top_Bar = QFrame(self.centralwidget)
         self.Top_Bar.setObjectName(u"Top_Bar")
         self.Top_Bar.setMaximumSize(QSize(16777215, 40))
-        self.Top_Bar.setStyleSheet(u"background-color:rgb(35, 35, 35)")
+        self.Top_Bar.setStyleSheet(u"background-color: rgb(0,100,200);")
         self.Top_Bar.setFrameShape(QFrame.NoFrame)
         self.Top_Bar.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.Top_Bar)
@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
         self.frame_left_menu.setObjectName(u"frame_left_menu")
         self.frame_left_menu.setMinimumSize(QSize(70, 0))
         self.frame_left_menu.setMaximumSize(QSize(70, 16777215))
-        self.frame_left_menu.setStyleSheet(u"background-color: rgb(35, 35, 35);")
+        self.frame_left_menu.setStyleSheet(u"background-color: rgb(233,237,242);")
         self.frame_left_menu.setFrameShape(QFrame.StyledPanel)
         self.frame_left_menu.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_left_menu)
@@ -104,7 +104,7 @@ class Ui_MainWindow(object):
         self.Btn_Menu_3.setStyleSheet(u"QPushButton {\n"
 "	border: 0px solid;\n"
 "	color: rgb(255, 255, 255);\n"
-"	background-color: rgb(35, 35, 35);\n"
+"	background-color: rgb(75,76,78);\n"
 "} \n"
 "QPushButton:hover {\n"
 "	\n"
@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
         self.Btn_Menu_2.setStyleSheet(u"QPushButton {\n"
 "	border: 0px solid;\n"
 "	color: rgb(255, 255, 255);\n"
-"	background-color: rgb(35, 35, 35);\n"
+"	background-color: rgb(75,76,78);\n"
 "} \n"
 "QPushButton:hover {\n"
 "	\n"
@@ -134,7 +134,7 @@ class Ui_MainWindow(object):
         self.Btn_Menu_1.setStyleSheet(u"QPushButton {\n"
 "	border: 0px solid;\n"
 "	color: rgb(255, 255, 255);\n"
-"	background-color: rgb(35, 35, 35);\n"
+"	background-color: rgb(75,76,78);\n"
 "} \n"
 "QPushButton:hover {\n"
 "	\n"
@@ -156,18 +156,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_4 = QVBoxLayout(self.frame_pages)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(10, 10, 10, 10)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.Pages_Widget = QStackedWidget(self.frame_pages)
         self.Pages_Widget.setObjectName(u"Pages_Widget")
-        self.Pages_Widget.setStyleSheet(u"	color: rgb(255, 255, 255);")
+        self.Pages_Widget.setStyleSheet(u"background-color: rgb(250,250,250);")
         self.page_1 = QWidget()
         self.page_1.setObjectName(u"page_1")
         self.verticalLayout_5 = QVBoxLayout(self.page_1)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.ToolTable = QTableWidget(self.page_1)
         self.ToolTable.setObjectName(u"ToolTable")
-        self.ToolTable.setStyleSheet(u"color: rgb(67, 67, 67);\n"
-"background-color: rgb(186, 186, 186);")
+        self.ToolTable.setStyleSheet(u"background-color: rgb(233,237,242);")
 
         self.verticalLayout_5.addWidget(self.ToolTable)
 
@@ -195,7 +195,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.Pages_Widget.setCurrentIndex(0)
-
+        
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
