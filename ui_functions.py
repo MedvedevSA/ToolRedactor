@@ -82,11 +82,8 @@ class UIFunctions(MainWindow):
                 col += 1
  
             row += 1
+            
+        return T_List
+    
 
-    def mousePressEvent(self, QMouseEvent):
-        if QMouseEvent.button() == Qt.LeftButton:
-            print("Left Button Clicked")
-        elif QMouseEvent.button() == Qt.RightButton:
-            #do what you want here
-            print("Right Button Clicked")
  
