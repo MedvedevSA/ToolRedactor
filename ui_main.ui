@@ -101,7 +101,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QPushButton" name="Btn_Toogle">
+           <widget class="QPushButton" name="Btn_Toggle">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -324,11 +324,39 @@ QPushButton:hover {
           </property>
           <item>
            <widget class="QStackedWidget" name="Pages_Widget">
+            <property name="styleSheet">
+             <string notr="true">	color: rgb(255, 255, 255);</string>
+            </property>
             <property name="currentIndex">
              <number>0</number>
             </property>
-            <widget class="QWidget" name="page_1"/>
-            <widget class="QWidget" name="page_2"/>
+            <widget class="QWidget" name="page_1">
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QTableWidget" name="ToolTable">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(67, 67, 67);
+background-color: rgb(186, 186, 186);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_2">
+             <widget class="QLabel" name="label">
+              <property name="geometry">
+               <rect>
+                <x>210</x>
+                <y>90</y>
+                <width>181</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </widget>
             <widget class="QWidget" name="page_3"/>
            </widget>
           </item>
