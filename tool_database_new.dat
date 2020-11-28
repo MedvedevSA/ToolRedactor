@@ -1,0 +1,816 @@
+#    T   Lib Type    ST  Lib Subtype                         UGT  UG Type        UGST  UG Subtype
+#test
+#    01  Turning     02 ID_TURNING                           03 Turning Tool     01    Standard 	01.02.XXX
+#    01  Turning     11 OD_GROOVING                          04 Grooving Tool    01    Standard 	01.11.XXX
+
+
+#    10  Drilling    02 CENTERLINE_DRILL                     02   Drill          00    Standard 	10.02.XXX
+
+
+
+#    11  Punching    01 PARTIAL_PROFILE                      03 Turning Tool     01    Standard 	11.01.XXX
+
+
+
+#    09  Clamp       01  CLAMP_F25                           01   Mill           01    5 Parameter
+#    02  Milling     03  Ball Mills Non-indexable            01   Mill           04    Ball
+#    02  Milling     06  Spherical Mills Non-indexable       01   Mill           06    Spherical Mill
+#    02  Milling     21  T-Slot Mills Non-indexable          08   T Slot Cut     00    None
+#    02  Milling     90  UG -  5 Parameter Cutter            01   Mill           01    5 Parameter
+#    02  Milling     92  UG - 10 Parameter Cutter            01   Mill           03    10 Parameter
+#    02  Milling     31  Thread Mills                        02   Drill          10    Thread Mill
+
+
+
+
+
+
+#    03  Drilling    01 Twist Drills                         02   Drill          00    Standard
+#    03  Drilling    04 Step Drills                          02   Drill          12    Step Drill
+#    03  Drilling    06 Insert Drills Non-indexable          02   Drill          00    Standard
+#    03  Drilling    08 Core Drills indexable                02   Drill          13    Core Drill
+#    03  Drilling    12 Spot Facing Tools without Pilot      02   Drill          03    Spot Face
+#    03  Drilling    22 Center Drills                        02   Drill          01    Center Bell
+#    03  Drilling    32  Fixed Diameter Boring               02   Drill          05    Bore
+#    03  Drilling    42 Taper Machine Reamers                02   Drill          06    Drill Ream
+#    03  Drilling    52 Counter Borring Tools  Indexable     02   Drill          07    Counter Bore
+#    03  Drilling    62 Counter Sinking Tools  Indexable     02   Drill          02    Counter Sink
+#    03  Drilling    90 UG Drills                            02   Drill          00    Standard
+#    03  Drilling    33 Boring Bar                           02   Drill          15    Boring Bar
+# 
+
+#    01  Turning     13 Face Grooving                        04 Grooving Tool    01    Standard
+
+
+#    01  Turning     51 Form Tool                            09 Form Tool        00
+#
+#    04  Solid       02 Probe                                11 Solid            01    Probe
+#    05  Laser       01 Standard Laser                       12 Laser            00    Standard Laser
+#    06  Wedm        01 Wire                                 06 Wedm             00    None
+#    07  Robotic     02 End Effector - Ball Mill based       01 Mill             04    Ball
+#    08  Multi-tool  02 drilling and turning                 NX-CAM Multi-tool object
+# If you want to introduce new types/subtypes in this ASCII data file
+# your new tool types to UG internal classification. All available UG types and subtypes
+# Note. For multi-tools we don't have UGT, UGST. All multi-tool subtypes managed here are represented
+#
+# Milling Tools
+#
+#  End Mill (non indexable) 
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  FN      - Tool Flutes Number
+#  ZOFF    - Tool Z Offset
+#  FLEN    - Tool Flute Length (Cutting Depth)
+#  TIPA    - Tool Tip Angle
+#  CTH     - Coolant Through
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN TAPA TIPA COR1 CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+DATA | 8888 | 02 | 1 | 01 | 1 |  | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 30.00000 | 2 | 75.00000 | 0.00000 | 3 | 50.00000 | 0.00000 | 0.00000 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA |MILL-APPLITEC-3371-1.3-2.0|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||2|3|2.6| 0.00000 |3|2.6|0|0|0|0| 0.00000 | 0.00000 | 1.0 |3|36.4|2.35|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-APPLITEC-3375-2.5-0.9|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||0.9|3|2.3| 0.00000 |3|2.3|0|0|0|0| 0.00000 | 0.00000 | 1.0 |3|36.7|4.94|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-APPLITEC-3472-2-2.5|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||2.5|4|5| 0.00000 |3|5|0|0|0|0| 0.00000 | 0.00000 | 1.0 |3|34|1.18|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA | MILL-BEST-CARBIDE-411-4030-J-HFC-3.0 | 02 | 1 | 01 | 1 | Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.00000 | 4 | 8.50000 | 0.00000 | 3 | 8.00000 | 0.00000 | 0.00000 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 6.00000 | 41.50000 | 7.50000 | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA |MILL-GARANT-201641-0.3X3|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||0.3|2|3| 0.00000 |3|0.4|0|0|0|0| 0.00000 | 0.00000 | 1.0 |4|42|5.69|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-GARANT-206156-1X6|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||1|2|6| 0.00000 |3|1|0|0|0.1|0| 0.00000 | 0.00000 | 1.0 |4|44|4.62|15| 90.00000%T | 70.00000%T | 50.00000%T||
+#DATA |MILL-GUHRING-5653-4.0|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||4|4|18| 0.00000 |3|11|0|0|0|0| 0.00000 | 0.00000 | 1.0 |6|39|2.50|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-HITACHI-EPOCH-HGOS2025-PN-2.5|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||2.5|2|8| 0.00000 |3|8|0|0|0|0| 0.00000 | 0.00000 | 1.0 |4|32|4.50|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-M.A.FORD-XR-4-FL-EM-EDP-17682|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||2|4|4| 0.00000 |3|4|0|0|0|0| 0.00000 | 0.00000 | 1.0 |3|34|2.80|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-M.A.FORD-XR-5-FL-EM-EDP-17965|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||6|5|13| 0.00000 |3|13|0|0|0|0| 0.00000 | 0.00000 | 1.0 |6|44|0.00|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-M.A.FORD-XT-4-FL-EM-EDP-27709|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||8|4|19| 0.00000 |3|19|0|0|0.8|0| 0.00000 | 0.00000 | 1.0 |8|44|0.00|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-PARA-TOOLING-ST4-1.5X40|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||1.5|4|5| 0.00000 |3|5|0|0|0|0| 0.00000 | 0.00000 | 1.0 |3|35|2.80|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-PARA-TOOLING-ST4-8.0X65|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||8|4|20| 0.00000 |3|20|0|0|0|0| 0.00000 | 0.00000 | 1.0 |8|45|0.00|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-SANDVIK-1P260-0500-XA-1620|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||5|3|18| 0.00000 |3|18|0|0|0|0| 0.00000 | 0.00000 | 1.0 |6|39|1.37|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-SGS-EM-4FL-ART-46357-3.0|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||3|4|9| 0.00000 |3|9|0|0|0|0| 0.00000 | 0.00000 | 1.0 |6|48|5.60|15| 90.00000%T | 70.00000%T | 50.00000%T||
+DATA |MILL-SPHINX-ART-74300-0.8|2|1|1|1| Твердосплавная фреза DIAMETER | TMC0_00001 | High Speed Steel |0|0|0|||0.8|2|2| 0.00000 |3|2|0|0|0.4|0| 0.00000 | 0.00000 | 1.0 |3|37|4.11|15| 90.00000%T | 70.00000%T | 50.00000%T||
+#END_DATA
+#
+#
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  TAPA    - Tool Taper Angle
+#  COR1    - Tool Corner1 Radius
+#  HOFF    - Tool Holder Offset
+#CLASS CLAMP_F25
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DATA | SM_F25-67_MD_1.1 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 1.10000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_1.5 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 1.50000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM-F25-67-BRONZE-1.75UP |9|1|01|1| Цанга SM, диаметром DIAMETER с бронзой под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 1.75000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_1.8 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 1.80000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_10.0 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 10.00000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_2 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 2.00000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_2.2 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 2.20000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_2.28 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 2.28000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_2.5 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 2.50000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD-2.8 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 2.80000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_3.0 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 3.00000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_3.0-8.55 | 9 | 1 | 01 | 1 | Цанга SM коническая, конус 8.55, начальный диаметр 3.0 | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.00000 | 2 | 10.00000 | 0.00000 | 3 | 10.00000 | 0.00000 | 0.00000 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_3.2 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 3.20000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_3.24 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 3.24000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_3.3 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 3.30000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_3.447-30.0 | 9 | 1 | 01 | 1 | Цанга SM коническая, конус 30, начальный диаметр 3.447 | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.44700 | 2 | 10.00000 | 0.00000 | 3 | 10.00000 | 0.00000 | 0.00000 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_3.6 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 3.60000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_4.0-8.55 | 9 | 1 | 01 | 1 | Цанга SM коническая, конус 8.55, начальный диаметр 4.0 | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 4.00000 | 2 | 10.00000 | 0.00000 | 3 | 10.00000 | 0.00000 | 0.00000 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_4.4 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 4.40000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_5.0 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 5.00000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_5.6 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 5.60000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_6.0 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 6.00000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_6.3 | 9 | 1 | 01 | 1 | Цанга SM, диаметром 6.3 под диаметр  | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 6.30000 | 2 | 10.00000 | 0.00000 | 3 | 10.00000 | 0.00000 | 0.00000 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_7 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 7.00000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+DATA | SM_F25-67_MD_9.0 |9|1|01|1| Цанга SM, диаметром DIAMETER под диаметр  | TMC0_00001 | High Speed Steel |0|0|0|   |   | 9.00000 |2| 10.00000 | 0.00000 |3| 10.00000 | 0.00000 | 0.00000 | 0.00000 |0| 0.00000 | 0.00000 | 1.0 |  |  |   | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  |   
+#END_DATA
+#
+#
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  TAPA    - Tool Taper Angle
+#  CTH     - Coolant Through
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN TAPA COR1 CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+
+DATA | PV-22322 | 02 | 3 | 01 | 4 | фреза радиусная <o>0.8 Sphinx PV-22322 | TMC0_00003 | Carbide, Uncoated (Indexable) | 0 | 0 | 0 |   |   | 0.80000 | 2 | 2.00000 | 0.00000 | 3 | 2.00000 | 0.00000 | 0.40000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 37.00000 | 3.00000 | 15.00000 | 90.00000%T | 70.00000%T | 50.00000%T |  | 
+
+#
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  TAPA    - Tool Chamfer Angle
+#  COR1    - Tool Corner1 Radius
+#  HOFF    - Tool Holder Offset
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN TAPA CHAMFERLEN COR1 CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+
+#END_DATA
+#
+#
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  SDIA    - Tool Shank Diameter
+#  HOFF    - Tool Holder Offset
+#CLASS SPHERICAL_MILL_NON_INDEXABLE
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#END_DATA
+#
+#
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  D2      - Tool Diameter 2
+#  CTH     - Coolant Through
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN D2 COR1 CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+ 
+
+# T Slot Mill (non indexable) 
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  FN      - Tool Flutes Number
+#  ZOFF    - Tool Z Offset
+#  FLEN    - Tool Flute Length (Cutting Depth)
+#  LCOR    - Tool Lower Corner Radius
+#  CTH     - Coolant Through
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN SDIA LCOR UCOR CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+
+
+#
+#
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  THRDES  - Thread Description
+#  FLEN    - Tool Flute Length (Cutting Depth)
+#  COR1    - Tool Corner1 Radius
+#  CTH     - Coolant Through
+#  DESI    - Tool Designation
+#CLASS THREAD_MILL
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DATA | TEST_THREAD_MILL | 02 | 31 | 02 | 10 | 7777 | | | 0 | 0 | 0 |   |   | 1.00000 | 2 | 1.00000 | 0.00000 | 3 | 01 | ISO Metric 60 | 0.20000 | 0.25000 | | 0.00000 | 0.54000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   | | | | |  |  | 
+DATA | THREAD-DC-GW2016VS-S1.4x0.3-ART-166992-M1.4x0.3 | 02 | 31 | 02 | 10 | Резьбофреза, DIAMETER | TMC0_00006 | High Speed Steel Coated | 0 | 0 | 0 |   |   | 1.06000 | 3 | 3.90000 | 0.00000 | 3 | 01 | ISO Metric 60 | 0.30000 | 0.30000 | 0.00000 | 0.00000 | 0.64000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 50.00000 | 4.30000 | | | | |  |  | 
+DATA | THREAD-KRAMER-462.M014.35.Z4-M1.4x0.3 | 02 | 31 | 02 | 10 | Резьбофреза, DIAMETER | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 1.03000 | 4 | 3.50000 | 0.00000 | 3 | 01 | ISO Metric 60 | 0.30000 | 0.30000 | 0.00000 | 0.00000 | 0.63000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 30.00000 | 5.00000 | | | | |  |  | 
+DATA | THREAD-KYOCERA-98M08-0200L2FA1-М0.8x0.2 | 02 | 31 | 02 | 10 |  | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 0.51000 | 2 | 2.00000 | 0.00000 | 3 | 01 | ISO Metric 60 | 0.20000 | 0.20000 | | 0.00000 | 0.28000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 25.00000 | 3.00000 | | | | |  |  | 
+DATA | ugt0231_1001 | 02 | 31 | 02 | 10 | Резьбофреза, DIAMETER, смещение по Z 0.23 | | | 34 | 34 | 34 |   |   | 1.03000 | 4 | 3.50000 | 0.00000 | 3 | 01 | ISO Metric 60 | 0.30000 | 0.10000 | | 0.00000 | 0.62000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 28.50000 | 4.35000 | | | | |  |  | 
+
+#
+# This type is for legacy tools which were converted from old 
+#
+#  T       - Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  TIPA    - Tool Tip Angle
+#  COR1    - Tool Corner1 Radius
+#  HOFF    - Tool Holder Offset
+#CLASS UG_5_PARAMETER
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 7 Parameter Mill 
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  FN      - Tool Flutes Number
+#  ZOFF    - Tool Z Offset
+#  FLEN    - Tool Flute Length (Cutting Depth)
+#  TIPA    - Tool Tip Angle
+#  CX1     - Tool Corner1 Center X
+#  CTH     - Coolant Through
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN TAPA TIPA COR1 CX1 CY1 CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+#END_DATA
+#
+#
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  TAPA    - Tool Taper Angle
+#  COR1    - Tool Corner1 Radius
+#  CY1     - Tool Corner1 Center Y
+#  CX2     - Tool Corner2 Center X
+#  CTH     - Coolant Through
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN TAPA TIPA COR1 CX1 CY1 COR2 CX2 CY2 CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+#END_DATA
+
+# UG Barrel Cutter
+# partfile tool libraries
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  FN      - Tool Flutes Number
+#  ZOFF    - Tool Z Offset
+#  FLEN    - Tool Flute Length (Cutting Depth)
+#  LCOR    - Tool Lower Corner Radius
+#  BRAD    - Tool Barrel Radius
+#  CTH     - Coolant Through
+
+FORMAT LIBRF T ST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN SDIA LCOR UCOR BRAD YCEN CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+#END_DATA
+
+# Mill Form Tool
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  ZOFF    - Tool Z Offset
+#  FLEN    - Tool Flute Length
+#  HOFF    - Tool Holder Offset
+#  HLDREF  - Holder Library Reference
+
+FORMAT LIBRF T ST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES FN ZOFF DROT FLEN CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN RAMPANGLE HELICALDIA MINRAMPLEN MAXCUTWIDTH HLDREF TPREF
+
+#END_DATA
+
+
+#
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  DIA     - Tool Diameter
+#  HEI     - Tool Length (Height)
+#  DROT    - Tool Direction (3=clockwise, 4=counterclockwise)
+#  PNTA    - Tool Point Angle
+#  COR1    - Tool Corner Radius
+#  HOFF    - Tool Holder Offset
+#CLASS SPIRAL_DRILL
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES DIA FN HEI ZOFF DROT FLEN PNTA PNTL COR1 CTH HOFF ZMOUNT RIGID TSDIA TSLEN TSTLEN HLDREF TPREF ARTICUL
+DATA | REAMER-KYOCERA-MR34-0774.787A1-CUSTOM-1.965 | 10 | 01 | 02 | 0 | Твердосплавнаая развертка DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.96500 | 4 | 24.50000 | 0.00000 | 3 | 20.00000 | 60.00000 | 1.70174 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 25.00000 | 1.50000 |  |  | 10.01.068
+DATA | REAMER-SPHINX-58000-VHM-REIBAHLE-4.0 | 10 | 01 | 02 | 0 | Твердосплавнаая развертка DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 4.00600 | 4 | 38.00000 | 0.00000 | 3 | 19.00000 | 180.00000 | 0.00000 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 6.00000 | 37.50000 | 3.00000 |  |  | 10.01.074
+DATA | SVERLO-BEST-CARBIDE-204-0032-3.2 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.20000 | 2 | 57.00000 | 0.00000 | 3 | 30.00000 | 118.00000 | 0.96140 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   |  |  | 10.01.048
+DATA | SVERLO-BEST-CARBIDE-204-0042-4.2 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 4.20000 | 2 | 70.00000 | 0.00000 | 3 | 41.00000 | 118.00000 | 1.26181 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   |  |  | 10.01.014
+DATA | SVERLO-BEST-CARBIDE-204-0044-4.4 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 4.40000 | 2 | 70.00000 | 0.00000 | 3 | 41.00000 | 118.00000 | 1.32189 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   |  |  | 10.01.069
+DATA | SVERLO-DORMER-R1201.2-CARBIDE-STUB-DRILL-1.2 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.20000 | 2 | 30.00000 | 0.00000 | 3 | 8.00000 | 120.00000 | 0.34641 | 0.00000 | 0 | 0.00000 | 17.00000 | 1.0 |  |  |   |  |  | 10.01.046
+DATA | SVERLO-DORMER-R1201.9-CARBIDE-STUB-DRILL-1.9 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.90000 | 2 | 36.00000 | 0.00000 | 3 | 11.00000 | 120.00000 | 0.54850 | 0.00000 | 0 | 0.00000 | 17.00000 | 1.0 |  |  |   |  |  | 10.01.066
+DATA | SVERLO-GARANT-121220-0.95 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.95000 | 2 | 6.80000 | 0.00000 | 3 | 6.00000 | 118.00000 | 0.28541 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 | 1.50000 | 18.20000 | 1.00000 |  |  | 10.01.065
+DATA | SVERLO-GARANT-121220-1.0 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.00000 | 2 | 10.50000 | 0.00000 | 3 | 10.00000 | 130.00000 | 0.23320 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 | 3.00000 | 27.50000 | 1.50000 |  |  | 10.01.064
+DATA | SVERLO-GARANT-121220-1.1 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.10000 | 2 | 10.50000 | 0.00000 | 3 | 10.00000 | 130.00000 | 0.25650 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 | 3.00000 | 27.50000 | 1.50000 |  |  | 10.01.063
+DATA | SVERLO-GARANT-121220-1.65 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.65000 | 2 | 10.50000 | 0.00000 | 3 | 10.00000 | 130.00000 | 0.38470 | 0.00000 | 0 | 0.00000 | 23.00000 | 1.0 | 3.00000 | 27.50000 | 1.50000 |  |  | 10.01.062
+DATA | SVERLO-GARANT-121220-1.75 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.75000 | 2 | 10.50000 | 0.00000 | 3 | 10.00000 | 130.00000 | 0.40800 | 0.00000 | 0 | 0.00000 | 23.00000 | 1.0 | 3.00000 | 27.50000 | 1.50000 |  |  | 10.01.061
+DATA | SVERLO-GARANT-121220-1.8 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.80000 | 2 | 10.50000 | 0.00000 | 3 | 10.00000 | 130.00000 | 0.41970 | 0.00000 | 0 | 0.00000 | 18.00000 | 1.0 | 3.00000 | 27.50000 | 1.50000 |  |  | 10.01.060
+DATA | SVERLO-GARANT-122151-1.5 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.50000 | 2 | 32.00000 | 0.00000 | 3 | 9.00000 | 118.00000 | 0.45070 | 0.00000 | 0 | 0.00000 | 19.00000 | 1.0 |  |  |   |  |  | 10.01.059
+DATA | SVERLO-GARANT-122151-1.6 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.60000 | 2 | 34.00000 | 0.00000 | 3 | 10.00000 | 118.00000 | 0.48070 | 0.00000 | 0 | 0.00000 | 22.00000 | 1.0 |  |  |   |  |  | 10.01.058
+DATA | SVERLO-GARANT-122151-1.7 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.70000 | 2 | 34.00000 | 0.00000 | 3 | 10.00000 | 118.00000 | 0.51070 | 0.00000 | 0 | 0.00000 | 22.00000 | 1.0 |  |  |   |  |  | 10.01.057
+DATA | SVERLO-GUHRING-730-1.1 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.10000 | 2 | 28.00000 | 0.00000 | 3 | 7.00000 | 118.00000 | 0.33050 | 0.00000 | 0 | 0.00000 | 15.00000 | 1.0 |  |  |   |  |  | 10.01.056
+DATA | SVERLO-GUHRING-730-1.2 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.19000 | 2 | 30.00000 | 0.00000 | 3 | 8.00000 | 118.00000 | 0.35750 | 0.00000 | 0 | 0.00000 | 13.00000 | 1.0 |  |  |   |  |  | 10.01.055
+DATA | SVERLO-GUHRING-730-1.8 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.80000 | 2 | 36.00000 | 0.00000 | 3 | 7.00000 | 118.00000 | 0.54080 | 0.00000 | 0 | 0.00000 | 15.00000 | 1.0 |  |  |   |  |  | 10.01.054
+DATA | SVERLO-HOLEX-122160-1.55 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.55000 | 2 | 32.00000 | 0.00000 | 3 | 9.00000 | 118.00000 | 0.46570 | 0.00000 | 0 | 0.00000 | 22.00000 | 1.0 |  |  |   |  |  | 10.01.052
+DATA | SVERLO-KYOCERA-226-0413L400-1.05 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.05000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.24480 | 0.00000 | 0 | 0.00000 | 22.00000 | 1.0 | 3.00000 | 27.60000 | 1.50000 |  |  | 10.01.051
+DATA | SVERLO-KYOCERA-226-0650L400-1.65 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.65000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.38470 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.60000 | 1.00000 |  |  | 10.01.050
+DATA | SVERLO-KYOCERA-226-0728L400-1.85 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.85000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.43133 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.60000 | 1.20000 |  |  | 10.01.049
+DATA | SVERLO-KYOCERA-226-0748L400-1.90 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.90000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.44299 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.60000 | 1.20000 |  |  | 10.01.047
+DATA | SVERLO-KYOCERA-226-0748L898-1.90 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.90000 | 2 | 23.00000 | 0.00000 | 3 | 22.80000 | 130.00000 | 0.44299 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 37.00000 | 1.20000 |  |  | 10.01.045
+DATA | SVERLO-KYOCERA-226-0768L400-1.95 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.95000 | 2 | 10.50000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.45465 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.50740 | 1.80000 |  |  | 10.01.067
+DATA | SVERLO-KYOCERA-226-0827L992-2.10 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.10000 | 2 | 25.40000 | 0.00000 | 3 | 25.20000 | 130.00000 | 0.48962 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 34.60000 | 1.50000 |  |  | 10.01.044
+DATA | SVERLO-KYOCERA-226-0886L400-2.25 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.25000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.52460 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.60000 | 1.80000 |  |  | 10.01.043
+DATA | SVERLO-KYOCERA-226-0906L400-2.3 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.30000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.53630 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.60000 | 1.50000 |  |  | 10.01.042
+DATA | SVERLO-KYOCERA-226-0945L400-2.4 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.40000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.55960 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.60000 | 1.50000 |  |  | 10.01.041
+DATA | SVERLO-KYOCERA-226-1024L400-2.6 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.60000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.60620 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.60000 | 1.50000 |  |  | 10.01.040
+DATA | SVERLO-KYOCERA-226-1102L400-2.8 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.80000 | 2 | 10.40000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.65280 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 27.60000 | 1.50000 |  |  | 10.01.039
+DATA | SVERLO-KYOCERA-226-1181L400-3.00 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.00000 | 2 | 38.00000 | 0.00000 | 3 | 10.20000 | 130.00000 | 0.69950 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 |  |  |   |  |  | 10.01.038
+DATA | SVERLO-MAYKESTAG-0672700350100-3.5 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.47000 | 2 | 22.00000 | 0.00000 | 3 | 18.00000 | 140.00000 | 0.63150 | 0.00000 | 0 | 0.00000 | 33.00000 | 1.0 | 6.00000 | 40.00000 | 3.00000 |  |  | 10.01.037
+DATA | SVERLO-MAYKESTAG-0672700400100-4.0 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.97000 | 2 | 26.00000 | 0.00000 | 3 | 22.00000 | 140.00000 | 0.72250 | 0.00000 | 0 | 0.00000 | 38.00000 | 1.0 | 6.00000 | 40.00000 | 3.00000 |  |  | 10.01.036
+DATA | SVERLO-MAYKESTAG-0672700450100-4.5 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 4.46000 | 2 | 25.50000 | 0.00000 | 3 | 24.00000 | 140.00000 | 0.81170 | 0.00000 | 0 | 0.00000 | 38.00000 | 1.0 | 6.00000 | 40.50000 | 3.00000 |  |  | 10.01.035
+DATA | SVERLO-MAYKESTAG-0672700800100-8.0 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 7.96000 | 2 | 79.00000 | 0.00000 | 3 | 40.50000 | 140.00000 | 1.44860 | 0.00000 | 0 | 0.00000 | 48.00000 | 1.0 |  |  |   |  |  | 10.01.034
+DATA | SVERLO-MIKRON-2.CFT.30105-1.05 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.05000 | 2 | 31.50000 | 0.00000 | 3 | 8.40000 | 140.00000 | 0.19110 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 38.50000 | 1.50000 |  |  | 10.01.033
+DATA | SVERLO-MIKRON-2.MD.200080.1-0.8 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.80000 | 2 | 2.00000 | 0.00000 | 3 | 2.00000 | 118.00000 | 0.24030 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 28.00000 | 0.50000 |  |  | 10.01.032
+DATA | SVERLO-MIKRON-2.MD.200090.1-0.9 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.90000 | 2 | 2.30000 | 0.00000 | 3 | 2.30000 | 118.00000 | 0.27040 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 27.70000 | 0.50000 |  |  | 10.01.031
+DATA | SVERLO-MIKRON-2.MD.200096.1-0.96 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.96000 | 2 | 2.50000 | 0.00000 | 3 | 2.50000 | 118.00000 | 0.28841 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 27.80000 | 0.50000 |  |  | 10.01.070
+DATA | SVERLO-MIKRON-2.MD.200099.1-0.99 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.99000 | 2 | 2.50000 | 0.00000 | 3 | 2.50000 | 118.00000 | 0.29743 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 27.90000 | 0.50000 |  |  | 10.01.071
+DATA | SVERLO-MIKRON-2.MD.200101.1-1.01 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.01000 | 2 | 2.60000 | 0.00000 | 3 | 2.00000 | 118.00000 | 0.30340 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 27.40000 | 0.50000 |  |  | 10.01.030
+DATA | SVERLO-MIKRON-2.MD.200110.1-1.1 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.10000 | 2 | 2.80000 | 0.00000 | 3 | 2.50000 | 118.00000 | 0.33050 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 27.20000 | 0.50000 |  |  | 10.01.029
+DATA | SVERLO-MIKRON-2.MD.200120.1-1.20 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.20000 | 2 | 3.00000 | 0.00000 | 3 | 2.50000 | 118.00000 | 0.36052 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 27.00000 | 0.50000 |  |  | 10.01.072
+DATA | SVERLO-MIKRON-2.MD.200123.1-1.23 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.23000 | 2 | 3.00000 | 0.00000 | 3 | 2.50000 | 118.00000 | 0.36950 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 27.00000 | 0.50000 |  |  | 10.01.028
+DATA | SVERLO-MIKRON-2.MD.200125.1-1.25 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.25000 | 2 | 3.00000 | 0.00000 | 3 | 2.50000 | 118.00000 | 0.37550 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 27.00000 | 0.50000 |  |  | 10.01.027
+DATA | SVERLO-MIKRON-2.MD.200126.1-1.26 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.26000 | 2 | 3.30000 | 0.00000 | 3 | 2.50000 | 118.00000 | 0.37850 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 26.70000 | 0.50000 |  |  | 10.01.026
+DATA | SVERLO-MIKRON-2.MD.200128.1-1.28 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.28000 | 2 | 4.00000 | 0.00000 | 3 | 3.00000 | 118.00000 | 0.38460 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 26.70000 | 0.50000 |  |  | 10.01.025
+DATA | SVERLO-MIKRON-2.MD.200130.1-1.30 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.30000 | 2 | 4.00000 | 0.00000 | 3 | 3.00000 | 118.00000 | 0.39060 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 26.00000 | 0.50000 |  |  | 10.01.024
+DATA | SVERLO-MIKRON-2.MD.200132.1-1.32 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.32000 | 2 | 3.30000 | 0.00000 | 3 | 3.30000 | 118.00000 | 0.39660 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.50000 | 26.70000 | 0.50000 |  |  | 10.01.023
+DATA | SVERLO-MIKRON-2.MD.210075.1-0.75 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.75000 | 2 | 6.30000 | 0.00000 | 3 | 4.85000 | 118.00000 | 0.22530 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 1.00000 | 23.70000 | 0.80000 |  |  | 10.01.022
+DATA | SVERLO-MIKRON-2.PFT.099.0-0.99 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.99000 | 2 | 5.00000 | 0.00000 | 3 | 3.50000 | 140.00000 | 0.18020 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 35.00000 | 1.00000 |  |  | 10.01.021
+DATA | SVERLO-MITSUBISHI-MVS0210X07S030-DP1020-2.1 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.10000 | 2 | 21.40000 | 0.00000 | 3 | 18.00000 | 140.00000 | 0.38220 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 52.60000 | 1.50000 |  |  | 10.01.020
+DATA | SVERLO-MITSUBISHI-VA-PDS-SUS-1.43 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.43000 | 2 | 10.00000 | 0.00000 | 3 | 8.20000 | 135.00000 | 0.29616 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 45.00000 | 3.50000 |  |  | 10.01.019
+DATA | SVERLO-SPHINX-50830-VHM-SPIRALBOHRER-3.9 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.89000 | 2 | 55.00000 | 0.00000 | 3 | 21.50000 | 118.00000 | 1.16870 | 0.00000 | 0 | 0.00000 | 28.00000 | 1.0 |  |  |   |  |  | 10.01.018
+DATA | SVERLO-SPHINX-51201-VHM-KLEINSTBOHRER-1.05 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.05000 | 2 | 10.00000 | 0.00000 | 3 | 9.00000 | 130.00000 | 0.24480 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 | 3.00000 | 30.00000 | 1.00000 |  |  | 10.01.017
+DATA | SVERLO-SPHINX-51201-VHM-KLEINSTBOHRER-1.1 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.10000 | 2 | 9.00000 | 0.00000 | 3 | 7.30000 | 130.00000 | 0.25650 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 | 3.00000 | 29.00000 | 1.00000 |  |  | 10.01.016
+DATA | SVERLO-SPHINX-51201-VHM-KLEINSTBOHRER-1.8 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.79000 | 2 | 13.00000 | 0.00000 | 3 | 11.00000 | 130.00000 | 0.41740 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 | 3.00000 | 24.60000 | 1.00000 |  |  | 10.01.015
+DATA | SVERLO-SPHINX-56033-VHM-PILOTBOHRER-1.27 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.27000 | 2 | 4.00000 | 0.00000 | 3 | 2.50000 | 130.00000 | 0.29610 | 0.00000 | 0 | 0.00000 | 15.00000 | 1.0 | 3.00000 | 33.70000 | 1.00000 |  |  | 10.01.013
+DATA | SVERLO-SPHINX-56033-VHM-PILOTBOHRER-1.28 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.28000 | 2 | 4.00000 | 0.00000 | 3 | 2.50000 | 130.00000 | 0.29840 | 0.00000 | 0 | 0.00000 | 15.00000 | 1.0 | 3.00000 | 33.70000 | 1.00000 |  |  | 10.01.012
+DATA | SVERLO-WALTER-A1163-1.3 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.30000 | 2 | 26.00000 | 0.00000 | 3 | 6.00000 | 118.00000 | 0.39060 | 0.00000 | 0 | 0.00000 | 13.00000 | 1.0 |  |  |   |  |  | 10.01.011
+DATA | SVERLO-WALTER-A1163-1.4 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.40000 | 2 | 32.00000 | 0.00000 | 3 | 9.00000 | 118.00000 | 0.42060 | 0.00000 | 0 | 0.00000 | 13.00000 | 1.0 |  |  |   |  |  | 10.01.010
+DATA | SVERLO-WALTER-A1163-1.5 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.50000 | 2 | 32.00000 | 0.00000 | 3 | 9.00000 | 118.00000 | 0.45070 | 0.00000 | 0 | 0.00000 | 13.00000 | 1.0 |  |  |   |  |  | 10.01.009
+DATA | SVERLO-WALTER-A1163-1.6 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.60000 | 2 | 34.00000 | 0.00000 | 3 | 10.00000 | 118.00000 | 0.48070 | 0.00000 | 0 | 0.00000 | 15.00000 | 1.0 |  |  |   |  |  | 10.01.008
+DATA | SVERLO-WALTER-A1163-1.7 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.70000 | 2 | 34.00000 | 0.00000 | 3 | 10.00000 | 118.00000 | 0.51070 | 0.00000 | 0 | 0.00000 | 15.00000 | 1.0 |  |  |   |  |  | 10.01.007
+DATA | SVERLO-WALTER-A1163-2.0 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.00000 | 2 | 38.00000 | 0.00000 | 3 | 12.00000 | 118.00000 | 0.60090 | 0.00000 | 0 | 0.00000 | 17.00000 | 1.0 |  |  |   |  |  | 10.01.006
+DATA | SVERLO-WALTER-A1163-2.1 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.10000 | 2 | 38.00000 | 0.00000 | 3 | 12.00000 | 118.00000 | 0.63090 | 0.00000 | 0 | 0.00000 | 17.00000 | 1.0 |  |  |   |  |  | 10.01.005
+DATA | SVERLO-WALTER-A1163-2.2 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.20000 | 2 | 40.00000 | 0.00000 | 3 | 13.00000 | 118.00000 | 0.66100 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 |  |  |   |  |  | 10.01.004
+DATA | SVERLO-WALTER-A1163-2.3 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 2.30000 | 2 | 40.00000 | 0.00000 | 3 | 13.00000 | 118.00000 | 0.69100 | 0.00000 | 0 | 0.00000 | 19.00000 | 1.0 |  |  |   |  |  | 10.01.003
+DATA | SVERLO-WALTER-A1163-3.2 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.20000 | 2 | 49.00000 | 0.00000 | 3 | 12.00000 | 118.00000 | 0.96138 | 0.00000 | 0 | 0.00000 | 19.00000 | 1.0 |  |  |   |  |  | 10.01.075
+DATA | SVERLO-WALTER-A1163-3.7 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 3.70000 | 2 | 52.00000 | 0.00000 | 3 | 14.00000 | 118.00000 | 1.11159 | 0.00000 | 0 | 0.00000 | 19.00000 | 1.0 |  |  |   |  |  | 10.01.076
+DATA | SVERLO-WALTER-A1163-4.8 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 4.78000 | 2 | 62.00000 | 0.00000 | 3 | 26.00000 | 118.00000 | 1.43610 | 0.00000 | 0 | 0.00000 | 33.00000 | 1.0 |  |  |   |  |  | 10.01.002
+DATA | SVERLO-WALTER-A1163-4.9 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 4.89000 | 2 | 62.00000 | 0.00000 | 3 | 26.00000 | 118.00000 | 1.46910 | 0.00000 | 0 | 0.00000 | 33.00000 | 1.0 |  |  |   |  |  | 10.01.001
+DATA | SVERLO-WALTER-A6488TML-1.95 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.95000 | 2 | 20.00000 | 0.00000 | 3 | 17.00000 | 140.00000 | 0.35487 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 47.00000 | 3.50000 |  |  | 10.01.073
+DATA | SVERLO-WALTER-DB130-05-00.950U0 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.95000 | 2 | 6.80000 | 0.00000 | 3 | 6.00000 | 118.00000 | 0.28541 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 | 1.50000 | 27.50000 | 1.00000 |  |  | 10.01.053
+#END_DATA
+#END_DATA
+
+
+
+#
+# ----------
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  IT      - Tool Insert Type
+#  NOSA    - Tool Nose Angle
+#  CLEN    - Tool Cut Edge Length
+#  THCK    - Tool Thickness
+#  RELA    - Tool Relief Angle
+#  MXDP    - Tool Max Depth
+#  YOFF    - Tool Y_Offset
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  MXTR    - Tool Max Toolreach
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#CLASS ID_TURNING
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DATA | SDH-435-092-R | 01 | 2 | 03 | 01 | Расточная пластина,  смещение 0.92 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 22.50000 | 60.00000 | 0.05000 | 0.50000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 3 | 1 | 0.92000 | 3.00000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80089 | 0.00000 | 0.00000
+DATA | SDH-440-342-R | 01 | 2 | 03 | 01 | Расточная пластина,  смещение 3.42 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 22.50000 | 60.00000 | 0.05000 | 0.70000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 3 | 1 | 3.42000 | 10.50000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80087 | 0.00000 | 0.00000
+DATA | SDH-448-142-R | 01 | 2 | 03 | 01 | Расточная пластина, смещение 1.42 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 22.50000 | 60.00000 | 0.05000 | 0.70000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 3 | 1 | 1.42000 | 7.50000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80064 | 0.00000 | 0.00000
+DATA | SDO-440-092-R | 01 | 2 | 03 | 01 | Расточная пластина для зачистки, смещение 0.92 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 60.50000 | 59.00000 | 0.05000 | 0.40000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 8 | 1 | 0.92000 | 3.00000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80084 | 0.00000 | 0.00000
+DATA | SDO-448-142-R | 01 | 2 | 03 | 01 | Расточная пластина,  смещение 1.42 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 60.00000 | 60.00000 | 0.07500 | 0.60000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 8 | 1 | 1.42000 | 7.50000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80096 | 0.00000 | 0.00000
+DATA | SXF-435-192-R | 01 | 2 | 03 | 01 | Расточная пластина,  смещение 1.92 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 2.50000 | 87.00000 | 0.06000 | 0.90000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 3 | 1 | 1.92000 | 6.00000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80095 | 0.00000 | 0.00000
+DATA | SXF-448-342-R | 01 | 2 | 03 | 01 | Расточная пластина,  смещение 3.42 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 2.50000 | 87.00000 | 0.06000 | 0.70000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 3 | 1 | 3.42000 | 17.50000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80081 | 0.00000 | 0.00000
+DATA | SXI-435-142-R | 01 | 2 | 03 | 01 | Расточная пластина,  смещение 1.42 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 2.50000 | 87.00000 | 0.02000 | 0.70000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 3 | 1 | 1.42000 | 4.50000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80080 | 0.00000 | 0.00000
+DATA | SXI-440-142-R | 01 | 2 | 03 | 01 | Расточная пластина,  смещение 1.42 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 2.50000 | 87.00000 | 0.02000 | 0.70000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 3 | 1 | 1.42000 | 7.50000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80077 | 0.00000 | 0.00000
+DATA | SXI-440-242-R | 01 | 2 | 03 | 01 | Расточная пластина,  смещение 2.42 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | | |   |   | X | 2.50000 | 87.00000 | 0.02000 | 1.20000 |  | 0.05000 | (13) | 5.00000 | (B) |  | | | 3 | 1 | 2.42000 | 12.50000 | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80078 | 0.00000 | 0.00000
+
+# OD Grooving
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  IW      - Tool Insert Width
+#  COR     - Tool Corner Radius
+#  MXDP    - Tool Max Depth
+#  RSA     - Tool Right Side Angle
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  LXOFF   - Tool Left X_Offset
+#  RXOFF   - Tool Right X_Offset
+#  MNBD    - Tool Min Boring Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES OA IW IL COR THCK MXDP LSA RSA TP INSP TIPA LXOFF LYOFF RXOFF RYOFF MNBD MXTR XMOUNT YMOUNT HANGLE RIGID HLDREF TPREF  INDXNTCH TURRETROT ARTICUL
+
+DATA | 1602-1.0-5-RN-SPT | 01 | 11 | 04 | 01 | Отрезная ластина 1602-0.5-2.5-RN-SPT | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 0.00000 | 1.00000 | 5.00000 | 0.00000 | 1.50000 |  | 0.50000 | 0.50000 |  | 1 | 0.00000 |  |  |  |  |  |  | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80121 | 0.00000 | 0.00000 | 01.11.003
+DATA | 1605-1.0-2.5-R | 01 | 11 | 04 | 01 | Канавочная пластина 1605-1.0-2.5-R | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 0.00000 | 1.00000 | 2.50000 | 0.05000 | 1.50000 |  | 0.50000 | 0.50000 |  | 1 | 0.00000 |  |  |  |  |  |  | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80125 | 0.00000 | 0.00000 | 01.11.005
+DATA | 3002-1.0-6-LV | 01 | 11 | 04 | 01 | Отрезная ластина 3002-1.0-6-LV | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 0.00000 | 1.00000 | 6.00000 | 0.00000 | 1.50000 |  | 0.00000 | 0.00000 |  | 1 | 15.00000 |  |  |  |  |  |  | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80151 | 0.00000 | 0.00000 | 01.11.001
+
+# ID Grooving
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  IW      - Tool Insert Width
+#  COR     - Tool Corner Radius
+#  MXDP    - Tool Max Depth
+#  RSA     - Tool Right Side Angle
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  MXTR    - Tool Max Toolreach
+#  LXOFF   - Tool Left X_Offset
+#  RXOFF   - Tool Right X_Offset
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES OA IW IL COR THCK MXDP LSA RSA TP INSP MNBD MXTR TIPA LXOFF LYOFF RXOFF RYOFF XMOUNT YMOUNT HANGLE RIGID HLDREF TPREF  INDXNTCH TURRETROT
+
+
+# Face Grooving
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  IW      - Tool Insert Width
+#  COR     - Tool Corner Radius
+#  MXDP    - Tool Max Depth
+#  RSA     - Tool Right Side Angle
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  LXOFF   - Tool Left X_Offset
+#  RXOFF   - Tool Right X_Offset
+#  MNBD    - Tool Min Boring Diameter
+#  MNFD    - Tool Minimum Facing Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES OA IW IL COR THCK MXDP LSA RSA TP INSP TIPA LXOFF LYOFF RXOFF RYOFF MNBD MXTR MNFD MXFD XMOUNT YMOUNT HANGLE RIGID HLDREF TPREF INDXNTCH TURRETROT
+
+
+# Parting
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  IW      - Tool Insert Width
+#  COR     - Tool Corner Radius
+#  MXDP    - Tool Max Depth
+#  RSA     - Tool Right Side Angle
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  XOFF    - Tool X_Offset
+#  PSET    - Tool Preset Cutter  ( R = Right, L = Left )
+#  MXTR    - Tool Max Toolreach
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#CLASS PARTING
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# OD Threading
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  THRDES  - Thread Description
+#  OA      - Tool Orientation Angle
+#  THCK    - Tool Thickness
+#  XOFF    - Tool X_Offset
+#  TP      - Tool Tracking Point
+#  MNBD    - Tool Min Boring Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES THRDS THRDES PIT OA NOSR CLEN THCK MXDP XOFF YOFF TP INSP MNBD MXTR XMOUNT YMOUNT HANGLE RIGID TPREF INDXNTCH TURRETROT ARTICUL
+
+DATA | 1606-0.2-60-VP-R | 01 | 31 | 05 | 1 | Резьбовая пластина 0.2 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 01 | ISO Metric 60 | 0.20000 | -90.00000 | 0.01900 |  | 3.00000 |  | 0.00000 | 0.00000 | 6 | 1 |  |  | 0.00000 | 0.00000 | 0.00000 | 1.0 | TP002_80141 | 0.00000 | 0.00000 | 01.31.002
+DATA | 1606-0.4-60-VP-R | 01 | 31 | 05 | 1 | Резьбовая пластина 0.4 | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 01 | ISO Metric 60 | 0.40000 | -90.00000 | 0.05770 |  | 3.00000 |  | 0.00000 | 0.00000 | 6 | 1 |  |  | 0.00000 | 0.00000 | 0.00000 | 1.0 | TP002_80139 | 0.00000 | 0.00000 | 01.31.004
+DATA | 1606-01-72-UNF-60-VP-R | 01 | 31 | 05 | 1 | Резьбовая пластина 0.35, ей можно резать метрическую | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 01 | ISO Metric 60 | 0.35000 | -90.00000 | 0.05090 |  | 3.00000 |  | 0.00000 | 0.00000 | 6 | 1 |  |  | 0.00000 | 0.00000 | 0.00000 | 1.0 | TP002_80181 | 0.00000 | 0.00000 | 01.31.006
+#END_DATA
+#
+# ----------
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  THRDS   - Tool Thread Shape (01=ISO Metric 60, 02=Whitworth 55, 03=Trapez 30, 04=Round 30)
+#  PIT     - Tool Pitch
+#  NOSR    - Tool Nose Radius
+#  MXDP    - Tool Max Depth
+#  YOFF    - Tool Y_Offset
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  MXTR    - Tool Max Toolreach
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#CLASS ID_THREADING
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#END_DATA
+#
+# ------------
+#  T       - Tool Type
+#  UGT     - UG Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  HLD     - Tool Holding System
+#  OA      - Tool Orientation Angle
+#  LSA     - Tool Side Angle
+#  THCK    - Tool Thickness
+#  MXDP    - Tool Max Depth
+#  YOFF    - Tool Y_Offset
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  MXTR    - Tool Max Toolreach
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#CLASS OD_PROFILING
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DATA | 1607-R0.1-0.1-R | 01 | 21 | 04 | 03 | Круглая канавочная пластина 1607-R0.1-0.1-R | TMC0_00004 | Carbide, Coated (Indexable - TiN, TiC, and Aluminum Oxide) | 0 | 0 | 0 |   |   | 0.00000 | 0.10000 | 0.50000 | 0.20000 | 1.50000 | 0.00000 |  |  |  |  | 1 |  |  | 0.00000 | 0.00000 | 0.00000 | 1.0 |  | TP002_80127 | 0.00000 | 0.00000 | 01.21.001
+
+# ID Profiling
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  UGST    - UG Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  HLDDES  - Tool Holding System Description
+#  RAD     - Tool Radius
+#  IL      - Tool Insert Length
+#  RELA    - Tool Relief Angle
+#  XOFF    - Tool X_Offset
+#  TP      - Tool Tracking Point
+#  MNBD    - Tool Min Boring Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG HLD HLDDES OA RAD LSA IL THCK RELA MXDP XOFF YOFF TP INSP MNBD MXTR XMOUNT YMOUNT HANGLE RIGID HLDREF TPREF INDXNTCH TURRETROT
+
+
+# UG Standard Turning Tool
+# partfile tool libraries
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  OA      - Tool Orientation Angle
+#  NOSR    - Tool Nose Radius
+#  IC      - Inscribed Circle
+#  THCT    - Tool Thickness Type
+#  RELT    - Tool Relief Type
+#  XOFF    - Tool X_Offset
+#  TP      - Tool Tracking Point
+#  MNBD    - Tool Min Boring Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG IT OA NOSA NOSR CLEN IC THCK THCT RELA RELT MXDP XOFF YOFF TP INSP MNBD MXTR XMOUNT YMOUNT HANGLE RIGID HLDREF TPREF INDXNTCH TURRETROT
+#END_DATA
+#
+# This type is for legacy tools which were converted from old 
+#
+#  T       - Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  IT      - Tool Insert Type
+#  BTDIA   - Tool Button Diameter
+#  BTHW    - Button Holder Width
+#  THCT    - Tool Thickness Type
+#  RELT    - Tool Relief Type
+#  XOFF    - Tool X_Offset
+#  TP      - Tool Tracking Point
+#  MNBD    - Tool Min Boring Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST UGT UGST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG IT OA BTDIA BTHA BTHW THCK THCT RELA RELT MXDP XOFF YOFF TP INSP MNBD MXTR XMOUNT YMOUNT HANGLE RIGID HLDREF TPREF INDXNTCH TURRETROT
+#END_DATA
+#
+# This type is for legacy tools which were converted from old 
+#
+#  T       - Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  OA      - Tool Orientation Angle
+#  IL      - Tool Insert Length
+#  COR2    - Tool Right Corner Radius
+#  MXDP    - Tool Max Depth
+#  TIPA    - Tool Tip Angle
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  LYOFF   - Tool Left Y_Offset
+#  RYOFF   - Tool Right Y_Offset
+#  MXTR    - Tool Max Toolreach
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#CLASS UG_GROOVING_STD
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# UG Grooving Tool (Full Nose Radius)
+# partfile tool libraries
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  IW      - Tool Insert Width
+#  IL      - Tool Insert Length
+#  MXDP    - Tool Max Depth
+#  YOFF    - Tool Y_Offset
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  MXTR    - Tool Max Toolreach
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#CLASS UG_GROOVING_FNR
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# UG Grooving Tool (Ring Type Joint)
+# partfile tool libraries
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  NOSW    - Tool Nose Width
+#  THCK    - Tool Thickness
+#  LSA     - Tool Left Angle
+#  TP      - Tool Left Tracking Point
+#  LXOFF   - Tool Left X_Offset
+#  RXOFF   - Tool Right X_Offset
+#  MNBD    - Tool Min Boring Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG OA NOSW IL THCK MXDP LSA RSA TP INSP LXOFF LYOFF RXOFF RYOFF MNBD MXTR XMOUNT YMOUNT HANGLE RIGID HLDREF TPREF INDXNTCH TURRETROT
+#END_DATA
+#
+# This type is for legacy tools which were converted from old 
+#
+#  T       - Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  OA      - Tool Orientation Angle
+#  IL      - Tool Insert Length
+#  MXDP    - Tool Max Depth
+#  RSA     - Tool Right Angle
+#  COR     - Tool Left Corner Radius
+#  TP      - Tool Left Tracking Point
+#  LXOFF   - Tool Left X_Offset
+#  RXOFF   - Tool Right X_Offset
+#  MNBD    - Tool Min Boring Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG OA IW IL THCK MXDP LSA RSA TIPA COR COR2 TP INSP LXOFF LYOFF RXOFF RYOFF MNBD MXTR XMOUNT YMOUNT HANGLE RIGID HLDREF TPREF INDXNTCH TURRETROT
+#END_DATA
+#
+# This type is for legacy tools which were converted from old 
+#
+#  T       - Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  ADJREG  - Tool Length Adjust Register
+#  OA      - Tool Orientation Angle
+#  LA      - Tool Left Angle
+#  TOFF    - Tool Tip Offset
+#  IL      - Tool Insert Length
+#  MXDP    - Tool Max Depth
+#  YOFF    - Tool Y_Offset
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  MXTR    - Tool Max Toolreach
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#                to transform the corresponding cutter (insert) parallel to the lathe work plane 
+#CLASS UG_THREADING_STD
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# UG Threading Tool (Trapez)
+# partfile tool libraries
+#  LIBRF   - Tool Library Reference
+#  ST      - Tool SubType
+#  MATREF  - Tool Material Code
+#  TLNUM   - Tool Number
+#  CUTCOMREG - Tool CUTCOM Register
+#  NOSW    - Tool Nose Width
+#  RA      - Tool Right Angle
+#  IW      - Tool Insert Width
+#  THCK    - Tool Thickness
+#  XOFF    - Tool X_Offset
+#  TP      - Tool Tracking Point
+#  MNBD    - Tool Min Boring Diameter
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST DESCR MATREF MATDES TLNUM ADJREG CUTCOMREG OA NOSW LA RA TOFF IW IL THCK MXDP XOFF YOFF TP INSP MNBD MXTR XMOUNT YMOUNT HANGLE RIGID TPREF INDXNTCH TURRETROT
+#END_DATA
+#
+#
+#  T       - Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  OA      - Tool Orientation Angle
+#  IEA     - Initial Edge Angle
+#  INSP    - Tool Insert Position  (1=topside, 2=downside)
+#  MNFD    - Tool Minimum Facing Diameter
+#  MNBD    - Tool Min Boring Diameter
+#  RIGID   - Tool Rigidity
+#  INDXNTCH    - Index Notch, rotation angle around the tool axis = machine adapter direction
+#  TURRETROT   - Turret Rotation, incremental turet rotation angle
+
+FORMAT LIBRF T ST DESCR MATREF MATDES TLNUM OA THCK IEA IEL INSP MXDP MNFD MXFD MNBD MXTR XMOUNT YMOUNT HANGLE RIGID TPREF INDXNTCH TURRETROT
+#END_DATA
+#
+#
+#  T       - Tool Type
+#  DESCR   - Description
+#  MATDES  - Tool Material Description
+#  HLD     - Tool Holding System
+#  RIGID   - Tool Rigidity
+#CLASS GENERIC
+#------------------------------------------------------------
+#END_DATA

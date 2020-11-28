@@ -57,6 +57,41 @@ class UIFunctions(MainWindow):
 
         return item_list
 
+    def updateToolDB (self):
+        str_open = "CLASS SPIRAL_DRILL"
+        str_close = "END_DATA"
+
+        fg_transfer = 0
+        data_str = []
+
+        with open("tool_database.dat", "r", encoding='utf-8') as data_file:
+            for line in data_file: 
+
+                line = data_file.readline()
+                if  line.find(str_open) > 0 :
+                    data_str.append(line)
+                    fg_transfer = 1
+                    for upd_str in self.DataTool :
+                        data_str.append("|".join(upd_str))
+                    
+                    data_str.append(f"#{str_close}\n")
+
+                    continue
+                
+                if line.find(str_close) > 0 :
+                    fg_transfer = 0
+
+                if fg_transfer == 0:
+                    data_str.append(line)
+    
+        with open("tool_database_new.dat", "w", encoding='utf-8') as data_file:
+                data_file.writelines(data_str)
+
+            
+            
+
+
+
     def ViewListTool(self):
 
         """T_List = [ [["1:1"],["1:2"],["1:3"],],

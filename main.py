@@ -54,9 +54,11 @@ class MainWindow(QMainWindow):
         action = contextMenu.exec_(self.mapToGlobal (event.pos()))
 
         if action == delRow:
-            cur_row = self.ui.ToolTable.currentRow()
-            print(self.ui.ToolTable.item(1,1).text())
-            self.ui.ToolTable.removeRow(cur_row)
+            UIFunctions.updateToolDB(self)
+            #cur_row = self.ui.ToolTable.currentRow()
+            #print(self.ui.ToolTable.item(1,1).text())
+            #self.ui.ToolTable.removeRow(cur_row)
+
 
     def mousePressEvent(self, QMouseEvent):
         if QMouseEvent.button() == Qt.LeftButton:
