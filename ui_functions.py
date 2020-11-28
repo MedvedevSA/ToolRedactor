@@ -57,7 +57,7 @@ class UIFunctions(MainWindow):
 
         return item_list
 
-    def updateToolDB (self):
+    def updateToolDBfile (self):
         str_open = "CLASS SPIRAL_DRILL"
         str_close = "END_DATA"
 
@@ -71,6 +71,10 @@ class UIFunctions(MainWindow):
                 if  line.find(str_open) > 0 :
                     data_str.append(line)
                     fg_transfer = 1
+
+                    # Update data from self.DataTool
+                    ####################################################
+                    
                     for upd_str in self.DataTool :
                         data_str.append("|".join(upd_str))
                     
@@ -84,23 +88,28 @@ class UIFunctions(MainWindow):
                 if fg_transfer == 0:
                     data_str.append(line)
     
+
         with open("tool_database_new.dat", "w", encoding='utf-8') as data_file:
                 data_file.writelines(data_str)
 
             
             
-
+    def delRowData(self):
+        
+        cur_row = self.ui.ToolTable.currentRow()
+        self.ui.ToolTable.removeRow(cur_row)
+        self.DataTool.pop(cur_row)
+        #print(self.ui.ToolTable.item(1,1).text())
 
 
     def ViewListTool(self):
 
-        """T_List = [ [["1:1"],["1:2"],["1:3"],],
-                   [["2:1"],["2:2"],["2:3"],],
-                   [["3:1"],["3:2"],["3:3"],]]
-        """
+        name = "CLASS SPIRAL_DRILL"
+        dict_row_col = {"CLASS SPIRAL_DRILL" : [2, 15, 17 ,20 , 21, 28, 29, 30]}
+        
         T_List = UIFunctions.loadDrill()
 
-        width = len(T_List[2])
+        width = len(dict_row_col[name])
         height = len(T_List)
 
         self.ui.ToolTable.setColumnCount( width )
@@ -108,14 +117,18 @@ class UIFunctions(MainWindow):
 
 
         row = 0
+
         for tup in T_List:
             col = 0
  
-            for item in tup:
-                cellinfo = QTableWidgetItem(item)
-                self.ui.ToolTable.setItem(row, col, cellinfo)
-                col += 1
- 
+            for index in dict_row_col[name]:
+                if len(T_List[row]) > width:
+
+                    cellinfo = QTableWidgetItem(T_List[row][index-1])
+                    self.ui.ToolTable.setItem(row, col, cellinfo)
+                    col += 1
+                else:
+                    break
             row += 1
             
         return T_List

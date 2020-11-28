@@ -50,15 +50,17 @@ class MainWindow(QMainWindow):
         contextMenu = QMenu(self)   
 
         delRow = contextMenu.addAction("Delete row")
+        saveFile = contextMenu.addAction("Save File")
 
         action = contextMenu.exec_(self.mapToGlobal (event.pos()))
 
         if action == delRow:
-            UIFunctions.updateToolDB(self)
-            #cur_row = self.ui.ToolTable.currentRow()
-            #print(self.ui.ToolTable.item(1,1).text())
-            #self.ui.ToolTable.removeRow(cur_row)
-
+            UIFunctions.delRowData(self)
+        
+        if action == saveFile:
+            UIFunctions.updateToolDBfile(self)
+            
+        
 
     def mousePressEvent(self, QMouseEvent):
         if QMouseEvent.button() == Qt.LeftButton:
