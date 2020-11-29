@@ -1,7 +1,7 @@
 
 #    T   Lib Type    ST  Lib Subtype                         UGT  UG Type        UGST  UG Subtype
 #    --------------|---------------------------------------|--------------------|--------------------
-#test
+
 #    01  Turning     01 OD_TURNING                           03 Turning Tool     01    Standard 	01.01.XXX
 #    01  Turning     02 ID_TURNING                           03 Turning Tool     01    Standard 	01.02.XXX
 #    01  Turning     31 OD_THREADING                         05 Threading Tool   01    Standard 	01.31.XXX
@@ -763,8 +763,8 @@ DATA | SVERLO-WALTER-A1163-4.8 | 10 | 01 | 02 | 0 | Твердосплавное
 DATA | SVERLO-WALTER-A1163-4.9 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 4.89000 | 2 | 62.00000 | 0.00000 | 3 | 26.00000 | 118.00000 | 1.46910 | 0.00000 | 0 | 0.00000 | 33.00000 | 1.0 |  |  |   |  |  | 10.01.001
 DATA | SVERLO-WALTER-A6488TML-1.95 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 1.95000 | 2 | 20.00000 | 0.00000 | 3 | 17.00000 | 140.00000 | 0.35487 | 0.00000 | 0 | 0.00000 | 0.00000 | 1.0 | 3.00000 | 47.00000 | 3.50000 |  |  | 10.01.073
 DATA | SVERLO-WALTER-DB130-05-00.950U0 | 10 | 01 | 02 | 0 | Твердосплавное сверло DIAMETER | TMC0_00001 | High Speed Steel | 0 | 0 | 0 |   |   | 0.95000 | 2 | 6.80000 | 0.00000 | 3 | 6.00000 | 118.00000 | 0.28541 | 0.00000 | 0 | 0.00000 | 20.00000 | 1.0 | 1.50000 | 27.50000 | 1.00000 |  |  | 10.01.053
-#
 #END_DATA
+
 #
 
 
@@ -1766,4 +1766,3 @@ FORMAT LIBRF T ST DESCR MATREF MATDES TLNUM HLD HLDDES RIGID
 #------------------------------------------------------------
 DATA | tailstock | 04 | 01 |  | TMC0_00001 | High Speed Steel | 1 |   |   | 1.0
 #END_DATA
-item_list == []
