@@ -19,6 +19,8 @@ class UIFunctions(MainWindow):
     #Функция анимирования при нажатии на кнопу Toggle
     def toggleMenu(self, maxWidth, enable):
         if enable:
+#"""------------------------------------------------------------toggleMenu-------------------------"""
+#"""------------------------------------------------------------toggleMenu-------------------------"""
 
             # GET WIDTH
             width = self.ui.frame_left_menu.width()
@@ -39,8 +41,10 @@ class UIFunctions(MainWindow):
             self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animation.start()
 
+#"""------------------------------------------------------------loadDrill-------------------------"""
+#"""------------------------------------------------------------loadDrill-------------------------"""
     # Загрузка массива сверел 
-    def loadDrill (): 
+    def loadDrill (self): 
         str_open = "CLASS SPIRAL_DRILL"
         str_close = "END_DATA"
         
@@ -51,7 +55,13 @@ class UIFunctions(MainWindow):
             data_str = data_file.readlines()
 
         item_list = []
+        index = 0
         for line in data_str:
+            
+            if fg_transfer and "DATA" in line and not "#END_DATA" in line:
+                if line[0] == '#' :
+                    self._list_hidden_row.append(index)
+                index += 1
 
             if  line.find(str_open) > 0 :
                 fg_transfer = 1
@@ -65,9 +75,14 @@ class UIFunctions(MainWindow):
             elif fg_transfer == 2:
                 break
 
+            
         data_str.clear()
 
         return item_list
+
+
+#"""------------------------------------------------------------updateToolDBfile-------------------------"""
+#"""------------------------------------------------------------updateToolDBfile-------------------------"""
 
     def updateToolDBfile (self):
         str_open = "CLASS SPIRAL_DRILL"
@@ -105,7 +120,8 @@ class UIFunctions(MainWindow):
                 data_file.writelines(data_str)
 
             
-            
+#"""------------------------------------------------------------delRowData-------------------------"""
+#"""------------------------------------------------------------delRowData-------------------------"""
     def delRowData(self):
         
         cur_row = self.ui.ToolTable.currentRow()
@@ -114,7 +130,8 @@ class UIFunctions(MainWindow):
         #print(self.ui.ToolTable.item(1,1).text())
 
     
-
+#"""------------------------------------------------------------ViewListTool-------------------------"""
+#"""------------------------------------------------------------ViewListTool-------------------------"""
     def ViewListTool(self):
 
         name = "CLASS SPIRAL_DRILL"
@@ -123,7 +140,7 @@ class UIFunctions(MainWindow):
         dict_head_table =   {"CLASS SPIRAL_DRILL" : [ "Название", "D", "L" ,"FL" , "PA", "SD", "SL", "STL", "ART", "Hiden" ]}
 
 
-        T_List = UIFunctions.loadDrill()
+        T_List = UIFunctions.loadDrill(self)
                                                     # Плюс комбо бокс
         width = len(dict_row_col[name]) + 1         #############
         height = len(T_List)
@@ -162,12 +179,22 @@ class UIFunctions(MainWindow):
             item = QTableWidgetItem()
             item.setFlags(QtCore.Qt.ItemIsUserCheckable |
                             QtCore.Qt.ItemIsEnabled)
-            item.setCheckState(QtCore.Qt.Unchecked)
+            
+            if row in self._list_hidden_row:
+                item.setCheckState(QtCore.Qt.Checked)
+            else :    
+                item.setCheckState(QtCore.Qt.Unchecked)
+            
             self.ui.ToolTable.setItem(row, width-1, item)
 
 
             row += 1
         
+
+        # Асссоциирование клика с вызовом handleItemClicked
+        ###############################
+        self.ui.ToolTable.itemClicked.connect(self.handleItemClicked)
+
         self.ui.ToolTable.setHorizontalHeaderLabels(dict_head_table[name])
         for col in range(0,len(dict_row_col[name])):
             self.ui.ToolTable.setColumnWidth(col, 6*len(T_List[2] [dict_row_col[name][col]-1]))
@@ -175,9 +202,9 @@ class UIFunctions(MainWindow):
         self.ui.ToolTable.setColumnWidth(width-1,30)
         
         return T_List
-    
 
- 
+
+
 
 
 

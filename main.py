@@ -18,7 +18,8 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        
+
+        self._list_hidden_row = []
 
         ## Tool list load to tableWidget
         ########################################################################
@@ -69,6 +70,25 @@ class MainWindow(QMainWindow):
         elif QMouseEvent.button() == Qt.RightButton:
             #do what you want here
             print("Right Button Clicked")
+
+#"""------------------------------------------------------------handleItemClicked-------------------------"""
+#"""------------------------------------------------------------handleItemClicked-------------------------"""
+    # Ивент включающийся по нажатию на чек бокс
+    ############################
+    def handleItemClicked(self, item):
+        self._list_hidden_row = set(self._list_hidden_row)
+        self._list_hidden_row = list(self._list_hidden_row)
+        
+        if item.checkState() == QtCore.Qt.Checked:
+            self._list_hidden_row.append(item.row())
+            print(self._list_hidden_row)
+        elif item.checkState() == QtCore.Qt.Unchecked:
+            try:
+                self._list_hidden_row.pop(self._list_hidden_row.index(item.row()))
+                print(self._list_hidden_row)
+            except:
+                print()
+
 
 
 stylesheet = """

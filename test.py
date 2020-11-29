@@ -1,2 +1,2 @@
-
-print("{0:.2f}".format(float(" 70.12312312 ")))
+test = set([1,2,3,4,2,2,2,2,3,3,3,])
+print (type(test))
