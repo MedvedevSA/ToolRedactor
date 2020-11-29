@@ -10,6 +10,7 @@ from PySide2.QtWidgets import *
 from ui_main import Ui_MainWindow
 
 # IMPORT FUNCTIONS
+
 from ui_functions import *
 
 class MainWindow(QMainWindow):

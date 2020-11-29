@@ -101,12 +101,13 @@ class UIFunctions(MainWindow):
         self.DataTool.pop(cur_row)
         #print(self.ui.ToolTable.item(1,1).text())
 
+    
 
     def ViewListTool(self):
 
         name = "CLASS SPIRAL_DRILL"
-        dict_row_col = {"CLASS SPIRAL_DRILL" : [2, 15, 17 ,20 , 21, 28, 29, 30]}
-        
+        dict_row_col =      {"CLASS SPIRAL_DRILL" : [2, 15, 17 ,20 , 21, 28, 29, 30]}
+        dict_head_table =   {"CLASS SPIRAL_DRILL" : ["Название", "D", "L" ,"FL" , "PA", "SD", "SL", "STL"]}
         T_List = UIFunctions.loadDrill()
 
         width = len(dict_row_col[name])
@@ -123,15 +124,40 @@ class UIFunctions(MainWindow):
  
             for index in dict_row_col[name]:
                 if len(T_List[row]) > width:
+                    
+                    if is_digit( T_List[row][index-1] ):
+                        cellinfo = QTableWidgetItem("{0:.3f}".format(float( T_List[row] [index-1] ) ) )
+                    
+                    else :
+                        cellinfo = QTableWidgetItem(T_List[row][index-1])
 
-                    cellinfo = QTableWidgetItem(T_List[row][index-1])
                     self.ui.ToolTable.setItem(row, col, cellinfo)
                     col += 1
                 else:
                     break
             row += 1
-            
+        
+        for col in range(0,len(dict_row_col[name])):
+            self.ui.ToolTable.horizontalHeader().setSectionResizeMode(col, QHeaderView.ResizeToContents)
+        
+        self.ui.ToolTable.setHorizontalHeaderLabels(dict_head_table[name])
+        
         return T_List
     
 
  
+
+
+
+
+
+ ########################################################
+def is_digit(string) :
+    if string.isdigit():
+        return True
+    else:
+        try:
+            float(string)
+            return True
+        except ValueError:
+            return False

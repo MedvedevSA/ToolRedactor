@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(806, 542)
+        MainWindow.resize(1269, 706)
         MainWindow.setStyleSheet(u"background-color:rgb(250,250,250)")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -95,9 +95,9 @@ class Ui_MainWindow(object):
         self.frame_top_menus.setFrameShape(QFrame.NoFrame)
         self.frame_top_menus.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame_top_menus)
-        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setSpacing(5)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setContentsMargins(5, 5, 5, 5)
         self.Btn_Menu_3 = QPushButton(self.frame_top_menus)
         self.Btn_Menu_3.setObjectName(u"Btn_Menu_3")
         self.Btn_Menu_3.setMinimumSize(QSize(0, 40))
@@ -105,6 +105,7 @@ class Ui_MainWindow(object):
 "	border: 0px solid;\n"
 "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(75,76,78);\n"
+"	border-radius: 10px ;\n"
 "} \n"
 "QPushButton:hover {\n"
 "	\n"
@@ -120,6 +121,7 @@ class Ui_MainWindow(object):
 "	border: 0px solid;\n"
 "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(75,76,78);\n"
+"	border-radius: 10px ;\n"
 "} \n"
 "QPushButton:hover {\n"
 "	\n"
@@ -135,6 +137,7 @@ class Ui_MainWindow(object):
 "	border: 0px solid;\n"
 "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(75,76,78);\n"
+"	border-radius: 10px ;\n"
 "} \n"
 "QPushButton:hover {\n"
 "	\n"
@@ -159,17 +162,86 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.Pages_Widget = QStackedWidget(self.frame_pages)
         self.Pages_Widget.setObjectName(u"Pages_Widget")
-        self.Pages_Widget.setStyleSheet(u"background-color: rgb(250,250,250);")
+        self.Pages_Widget.setStyleSheet(u"background-color: rgb(250,250,250);\n"
+"")
         self.page_1 = QWidget()
         self.page_1.setObjectName(u"page_1")
+        self.page_1.setMaximumSize(QSize(1111111, 16777215))
         self.verticalLayout_5 = QVBoxLayout(self.page_1)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.ToolTable = QTableWidget(self.page_1)
+        self.frame_2 = QFrame(self.page_1)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.ToolTable = QTableWidget(self.frame_2)
+        if (self.ToolTable.columnCount() < 10):
+            self.ToolTable.setColumnCount(10)
+        if (self.ToolTable.rowCount() < 10):
+            self.ToolTable.setRowCount(10)
         self.ToolTable.setObjectName(u"ToolTable")
+        self.ToolTable.setMaximumSize(QSize(1111111, 16777215))
         self.ToolTable.setStyleSheet(u"background-color: rgb(233,237,242);")
+        self.ToolTable.setRowCount(10)
+        self.ToolTable.setColumnCount(10)
 
-        self.verticalLayout_5.addWidget(self.ToolTable)
+        self.horizontalLayout_5.addWidget(self.ToolTable)
+
+        self.frame_3 = QFrame(self.frame_2)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMinimumSize(QSize(300, 0))
+        self.frame_3.setMaximumSize(QSize(300, 16777215))
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.listView = QListView(self.frame_3)
+        self.listView.setObjectName(u"listView")
+
+        self.verticalLayout_6.addWidget(self.listView)
+
+        self.label_2 = QLabel(self.frame_3)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(0, 300))
+        self.label_2.setPixmap(QPixmap(u"drill.jpg"))
+
+        self.verticalLayout_6.addWidget(self.label_2)
+
+
+        self.horizontalLayout_5.addWidget(self.frame_3)
+
+
+        self.verticalLayout_5.addWidget(self.frame_2)
+
+        self.frame = QFrame(self.page_1)
+        self.frame.setObjectName(u"frame")
+        self.frame.setMinimumSize(QSize(0, 50))
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer)
+
+        self.pushButton_2 = QPushButton(self.frame)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+
+        self.horizontalLayout_4.addWidget(self.pushButton_2)
+
+        self.pushButton = QPushButton(self.frame)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.horizontalLayout_4.addWidget(self.pushButton)
+
+        self.horizontalSpacer_2 = QSpacerItem(300, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_2)
+
+
+        self.verticalLayout_5.addWidget(self.frame)
 
         self.Pages_Widget.addWidget(self.page_1)
         self.page_2 = QWidget()
@@ -195,7 +267,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.Pages_Widget.setCurrentIndex(0)
-        
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -206,6 +278,9 @@ class Ui_MainWindow(object):
         self.Btn_Menu_3.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
         self.Btn_Menu_2.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
         self.Btn_Menu_1.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
+        self.label_2.setText("")
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
     # retranslateUi
 
