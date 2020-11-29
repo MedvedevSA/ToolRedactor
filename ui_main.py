@@ -98,10 +98,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setSpacing(5)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(5, 5, 5, 5)
-        self.Btn_Menu_3 = QPushButton(self.frame_top_menus)
-        self.Btn_Menu_3.setObjectName(u"Btn_Menu_3")
-        self.Btn_Menu_3.setMinimumSize(QSize(0, 40))
-        self.Btn_Menu_3.setStyleSheet(u"QPushButton {\n"
+        self.Btn_Menu_1 = QPushButton(self.frame_top_menus)
+        self.Btn_Menu_1.setObjectName(u"Btn_Menu_1")
+        self.Btn_Menu_1.setEnabled(True)
+        self.Btn_Menu_1.setMinimumSize(QSize(0, 40))
+        self.Btn_Menu_1.setStyleSheet(u"QPushButton {\n"
 "	border: 0px solid;\n"
 "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(75,76,78);\n"
@@ -112,7 +113,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(85, 170, 255);\n"
 "} ")
 
-        self.verticalLayout_3.addWidget(self.Btn_Menu_3)
+        self.verticalLayout_3.addWidget(self.Btn_Menu_1)
 
         self.Btn_Menu_2 = QPushButton(self.frame_top_menus)
         self.Btn_Menu_2.setObjectName(u"Btn_Menu_2")
@@ -130,10 +131,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.Btn_Menu_2)
 
-        self.Btn_Menu_1 = QPushButton(self.frame_top_menus)
-        self.Btn_Menu_1.setObjectName(u"Btn_Menu_1")
-        self.Btn_Menu_1.setMinimumSize(QSize(0, 40))
-        self.Btn_Menu_1.setStyleSheet(u"QPushButton {\n"
+        self.Btn_Menu_3 = QPushButton(self.frame_top_menus)
+        self.Btn_Menu_3.setObjectName(u"Btn_Menu_3")
+        self.Btn_Menu_3.setMinimumSize(QSize(0, 40))
+        self.Btn_Menu_3.setStyleSheet(u"QPushButton {\n"
 "	border: 0px solid;\n"
 "	color: rgb(255, 255, 255);\n"
 "	background-color: rgb(75,76,78);\n"
@@ -144,7 +145,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(85, 170, 255);\n"
 "} ")
 
-        self.verticalLayout_3.addWidget(self.Btn_Menu_1)
+        self.verticalLayout_3.addWidget(self.Btn_Menu_3)
 
 
         self.verticalLayout_2.addWidget(self.frame_top_menus, 0, Qt.AlignTop)
@@ -222,19 +223,24 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.frame)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.DelBtn = QPushButton(self.frame)
+        self.DelBtn.setObjectName(u"DelBtn")
+
+        self.horizontalLayout_4.addWidget(self.DelBtn)
+
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer)
 
-        self.pushButton_2 = QPushButton(self.frame)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.ResetBtn = QPushButton(self.frame)
+        self.ResetBtn.setObjectName(u"ResetBtn")
 
-        self.horizontalLayout_4.addWidget(self.pushButton_2)
+        self.horizontalLayout_4.addWidget(self.ResetBtn)
 
-        self.pushButton = QPushButton(self.frame)
-        self.pushButton.setObjectName(u"pushButton")
+        self.SaveBtn = QPushButton(self.frame)
+        self.SaveBtn.setObjectName(u"SaveBtn")
 
-        self.horizontalLayout_4.addWidget(self.pushButton)
+        self.horizontalLayout_4.addWidget(self.SaveBtn)
 
         self.horizontalSpacer_2 = QSpacerItem(300, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
@@ -275,12 +281,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.Btn_Toggle.setText(QCoreApplication.translate("MainWindow", u"TOOGLE", None))
-        self.Btn_Menu_3.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
+        self.Btn_Menu_1.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a", None))
         self.Btn_Menu_2.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
-        self.Btn_Menu_1.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
+        self.Btn_Menu_3.setText(QCoreApplication.translate("MainWindow", u"Menu", None))
         self.label_2.setText("")
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.DelBtn.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0432\u044b\u0434\u0435\u043b\u0435\u043d\u043d\u0443\u044e \u0441\u0442\u0440\u043e\u043a\u0443", None))
+        self.ResetBtn.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u043d\u0435\u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u043d\u044b\u0435 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f", None))
+        self.SaveBtn.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
     # retranslateUi
 

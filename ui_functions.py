@@ -45,7 +45,7 @@ class UIFunctions(MainWindow):
 #"""------------------------------------------------------------loadDrill-------------------------"""
     # Загрузка массива сверел 
     def loadDrill (self): 
-        str_open = "CLASS SPIRAL_DRILL"
+        str_open = self._cur_Type_Tool
         str_close = "END_DATA"
         
         fg_transfer = 0
@@ -53,7 +53,7 @@ class UIFunctions(MainWindow):
 
         with open("tool_database.dat", "r", encoding='utf-8') as data_file:
             data_str = data_file.readlines()
-
+    
         item_list = []
         index = 0
         for line in data_str:
@@ -83,9 +83,8 @@ class UIFunctions(MainWindow):
 
 #"""------------------------------------------------------------updateToolDBfile-------------------------"""
 #"""------------------------------------------------------------updateToolDBfile-------------------------"""
-
     def updateToolDBfile (self):
-        str_open = "CLASS SPIRAL_DRILL"
+        str_open = self._cur_Type_Tool
         str_close = "END_DATA"
 
         fg_transfer = 0
@@ -94,7 +93,6 @@ class UIFunctions(MainWindow):
         with open("tool_database.dat", "r", encoding='utf-8') as data_file:
             for line in data_file: 
 
-                line = data_file.readline()
                 if  line.find(str_open) > 0 :
                     data_str.append(line)
                     fg_transfer = 1
@@ -103,9 +101,9 @@ class UIFunctions(MainWindow):
                     ####################################################
                     
                     for upd_str in self.DataTool :
-                        data_str.append("|".join(upd_str))
+                        data_str.append("|".join(upd_str)+"\n")
                     
-                    data_str.append(f"#{str_close}\n")
+                    #data_str.append(f"#{str_close}\n")
 
                     continue
                 
@@ -123,21 +121,29 @@ class UIFunctions(MainWindow):
 #"""------------------------------------------------------------delRowData-------------------------"""
 #"""------------------------------------------------------------delRowData-------------------------"""
     def delRowData(self):
-        
         cur_row = self.ui.ToolTable.currentRow()
         self.ui.ToolTable.removeRow(cur_row)
         self.DataTool.pop(cur_row)
         #print(self.ui.ToolTable.item(1,1).text())
 
+
     
 #"""------------------------------------------------------------ViewListTool-------------------------"""
 #"""------------------------------------------------------------ViewListTool-------------------------"""
     def ViewListTool(self):
+        tmp = []
+        for i in range(0,34):
+            tmp.append(i)
+        tmp_str = []
+        for i in range(0,34):
+            tmp_str.append(str(i))
 
-        name = "CLASS SPIRAL_DRILL"
+        name = self._cur_Type_Tool
         
-        dict_row_col =      {"CLASS SPIRAL_DRILL" : [ 2, 15, 17 ,20 , 21, 28, 29, 30, 33 ]}
-        dict_head_table =   {"CLASS SPIRAL_DRILL" : [ "Название", "D", "L" ,"FL" , "PA", "SD", "SL", "STL", "ART", "Hiden" ]}
+        dict_row_col =      {   "CLASS SPIRAL_DRILL" : [ 2, 15, 17 ,20 , 21, 28, 29, 30, 33 ],
+                                "CLASS END_MILL_NON_INDEXABLE" : tmp}
+        dict_head_table =   {   "CLASS SPIRAL_DRILL" : [ "Название", "D", "L" ,"FL" , "PA", "SD", "SL", "STL", "ART", "Hiden" ],
+                                "CLASS END_MILL_NON_INDEXABLE" : tmp_str}
 
 
         T_List = UIFunctions.loadDrill(self)
@@ -201,7 +207,7 @@ class UIFunctions(MainWindow):
         
         self.ui.ToolTable.setColumnWidth(width-1,30)
         
-        return T_List
+        self.DataTool = T_List
 
 
 

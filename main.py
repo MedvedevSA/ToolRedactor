@@ -19,11 +19,15 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self._list_hidden_row = []
+        self._list_Type_Tool = [    "CLASS END_MILL_NON_INDEXABLE",
+                                    "CLASS SPIRAL_DRILL"]
+    
+        self._cur_Type_Tool = self._list_Type_Tool[0] 
 
+        self._list_hidden_row = []
         ## Tool list load to tableWidget
         ########################################################################
-        self.DataTool = UIFunctions.ViewListTool(self)
+        UIFunctions.ViewListTool(self)
         
         ## TOGGLE/BURGUER MENU
         ########################################################################
@@ -34,8 +38,13 @@ class MainWindow(QMainWindow):
         ########################################################################
         
         # PAGE 1
+        
         self.ui.Btn_Menu_1.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_1))
 
+        self.ui.DelBtn.clicked.connect(lambda: UIFunctions.delRowData(self))
+        self.ui.ResetBtn.clicked.connect(lambda: UIFunctions.ViewListTool(self))
+        
+        
         # PAGE 2
         self.ui.Btn_Menu_2.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_2))
 
@@ -82,12 +91,17 @@ class MainWindow(QMainWindow):
         if item.checkState() == QtCore.Qt.Checked:
             self._list_hidden_row.append(item.row())
             print(self._list_hidden_row)
+            self.DataTool[item.row()][0] = "#DATA " 
         elif item.checkState() == QtCore.Qt.Unchecked:
             try:
                 self._list_hidden_row.pop(self._list_hidden_row.index(item.row()))
                 print(self._list_hidden_row)
+                self.DataTool[item.row()][0] = "DATA " 
+
             except:
                 print()
+
+        
 
 
 
