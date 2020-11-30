@@ -427,7 +427,7 @@ QPushButton:hover {
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_6">
                     <item>
-                     <widget class="QListView" name="listView"/>
+                     <widget class="QListWidget" name="ListToolType"/>
                     </item>
                     <item>
                      <widget class="QLabel" name="label_2">

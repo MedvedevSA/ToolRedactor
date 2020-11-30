@@ -41,11 +41,13 @@ class UIFunctions(MainWindow):
             self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animation.start()
 
-#"""------------------------------------------------------------loadDrill-------------------------"""
-#"""------------------------------------------------------------loadDrill-------------------------"""
+#"""------------------------------------------------------------loadToolTableDB-------------------------"""
+#"""------------------------------------------------------------loadToolTableDB-------------------------"""
     # Загрузка массива сверел 
-    def loadDrill (self): 
-        str_open = self._cur_Type_Tool
+    def loadToolTableDB (self): 
+        cur = self._cur_Type_Tool
+
+        str_open = self._dict_tool[cur]["nx_name"]
         str_close = "END_DATA"
         
         fg_transfer = 0
@@ -131,26 +133,21 @@ class UIFunctions(MainWindow):
 #"""------------------------------------------------------------ViewListTool-------------------------"""
 #"""------------------------------------------------------------ViewListTool-------------------------"""
     def ViewListTool(self):
-        tmp = []
-        for i in range(0,34):
-            tmp.append(i)
-        tmp_str = []
-        for i in range(0,34):
-            tmp_str.append(str(i))
-
-        name = self._cur_Type_Tool
+            
+        cur = self._cur_Type_Tool
+        list_pos = self._dict_tool[cur]["index"]
         
-        dict_row_col =      {   "CLASS SPIRAL_DRILL" : [ 2, 15, 17 ,20 , 21, 28, 29, 30, 33 ],
-                                "CLASS END_MILL_NON_INDEXABLE" : tmp}
-        dict_head_table =   {   "CLASS SPIRAL_DRILL" : [ "Название", "D", "L" ,"FL" , "PA", "SD", "SL", "STL", "ART", "Hiden" ],
-                                "CLASS END_MILL_NON_INDEXABLE" : tmp_str}
+        #dict_row_col =      {   "CLASS SPIRAL_DRILL" : [ 2, 15, 17 ,20 , 21, 28, 29, 30, 33 ],
+        #                        "CLASS END_MILL_NON_INDEXABLE" : [2 ,15 , 16, 17, 20, 28, 29, 30]}
+        #dict_head_table =   {   "CLASS SPIRAL_DRILL" : [ "Название", "D", "L" ,"FL" , "PA", "SD", "SL", "STL", "ART", "Hiden" ],
+        #                        "CLASS END_MILL_NON_INDEXABLE" : ['Название', "D", "Z", "L", "FL", "SD", "SL", "STL"]}
+        
 
 
-        T_List = UIFunctions.loadDrill(self)
+        T_List = UIFunctions.loadToolTableDB(self)
                                                     # Плюс комбо бокс
-        width = len(dict_row_col[name]) + 1         #############
+        width = len(list_pos) + 1                   #############
         height = len(T_List)
-
         self.ui.ToolTable.setColumnCount( width )
         self.ui.ToolTable.setRowCount( height )
 
@@ -161,7 +158,7 @@ class UIFunctions(MainWindow):
             col = 0
             # Вносит соответствующее номеру столбца из словаря значение
             ##############################################
-            for index in dict_row_col[name]:
+            for index in list_pos:
                 if len(T_List[row]) > width:
 
                     if "\n" in T_List[row][index-1] :
@@ -201,16 +198,21 @@ class UIFunctions(MainWindow):
         ###############################
         self.ui.ToolTable.itemClicked.connect(self.handleItemClicked)
 
+        #Установка ширины столбцов по умолчанию 
+        ########################################
         self.ui.ToolTable.setHorizontalHeaderLabels(dict_head_table[name])
-        for col in range(0,len(dict_row_col[name])):
-            self.ui.ToolTable.setColumnWidth(col, 6*len(T_List[2] [dict_row_col[name][col]-1]))
+        #for col in range(0,len(dict_row_col[name])):
+        #    self.ui.ToolTable.setColumnWidth(col, 6*len(T_List[2] [dict_row_col[name][col]-1]))
         
         self.ui.ToolTable.setColumnWidth(width-1,30)
-        
+        self.ui.ToolTable.resizeColumnsToContents()
         self.DataTool = T_List
 
 
-
+    def UpdListToolType (self) :
+        self.ui.ListToolType.addItems(self._list_Type_Tool )
+    
+    
 
 
 

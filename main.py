@@ -19,16 +19,37 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        self._dict_tool = {
+            "Сверла" :  {
+                "nx_name" : "CLASS SPIRAL_DRILL",
+                "index" :   [   2, 15, 17 ,20 , 21, 28, 29, 30, 33 ],
+                "name" :    [   "Название", "D", "L" ,"FL" , "PA", "SD", "SL", "STL", "ART", "Hiden" ]
+            },
+            "Фрезы" : {
+                "nx_name" : "CLASS END_MILL_NON_INDEXABLE",
+                "index" :   [2 ,15 , 16, 17, 20, 28, 29, 30],
+                "name" :    ['Название', "D", "Z", "L", "FL", "SD", "SL", "STL"]
+
+            }
+        }
+        
+        #
+
         self._list_Type_Tool = [    "CLASS END_MILL_NON_INDEXABLE",
                                     "CLASS SPIRAL_DRILL"]
-    
-        self._cur_Type_Tool = self._list_Type_Tool[0] 
+
+        self._cur_Type_Tool = self._dict_tool["Сверла"]
 
         self._list_hidden_row = []
         ## Tool list load to tableWidget
         ########################################################################
         UIFunctions.ViewListTool(self)
         
+        ## ListToolType
+        ####################################
+        UIFunctions.UpdListToolType(self)
+        self.ui.ListToolType.itemDoubleClicked.connect(self.SelectToolType)
+
         ## TOGGLE/BURGUER MENU
         ########################################################################
         self.ui.Btn_Toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 250, True))
@@ -100,7 +121,10 @@ class MainWindow(QMainWindow):
 
             except:
                 print()
-
+    def SelectToolType(self, item):
+        cur_tool = self.ui.ListToolType.text()
+        self._cur_Type_Tool = self._dict_tool[cur_tool]
+        UIFunctions.ViewListTool(self)
         
 
 

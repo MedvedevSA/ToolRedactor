@@ -198,10 +198,10 @@ class Ui_MainWindow(object):
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.frame_3)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.listView = QListView(self.frame_3)
-        self.listView.setObjectName(u"listView")
+        self.ListToolType = QListWidget(self.frame_3)
+        self.ListToolType.setObjectName(u"ListToolType")
 
-        self.verticalLayout_6.addWidget(self.listView)
+        self.verticalLayout_6.addWidget(self.ListToolType)
 
         self.label_2 = QLabel(self.frame_3)
         self.label_2.setObjectName(u"label_2")
